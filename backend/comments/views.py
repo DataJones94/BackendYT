@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -20,15 +21,19 @@ def comments_list(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'PUT'])
 def comment_detail(request, pk):
-    try:
-
-        comment = Comment.objects.get(pk=pk)
+    comment = get_object_or_404(Comment, pk=pk)
+    if request.method == 'GET':
         serializer = CommentSerializer(comment);
-        return Response(serializer.data)    
-    except Comment.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND);
+        return Response(serializer.data) 
+    elif request.method == 'PUT':
+        serializer = CommentSerializer(comment, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+
     
 
         
