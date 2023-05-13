@@ -19,5 +19,17 @@ def comments_list(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+
+@api_view(['GET'])
+def comment_detail(request, pk):
+    try:
+
+        comment = Comment.objects.get(pk=pk)
+        serializer = CommentSerializer(comment);
+        return Response(serializer.data)    
+    except Comment.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND);
+    
+
         
 
