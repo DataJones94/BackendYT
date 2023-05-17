@@ -8,7 +8,8 @@ from .models import Comment
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def comments_list(request):
+def get_all_comments(request):
+    
     comments = Comment.objects.all()
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
@@ -17,9 +18,9 @@ def comments_list(request):
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def comment_detail(request):  
+def comment_detail(request, video_id):  
     print(
-    'User', f"{request.video.id}{request.user.email}{request.user.username}")    
+    'User', f"{request.user.id}{request.user.email}{request.user.username}")    
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():                                     
@@ -27,7 +28,7 @@ def comment_detail(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'GET':
-        comment = Comment.objects.filter(video_id=request.video_id)
+        comment = Comment.objects.filter(video_id=video_id)
         serializer = CommentSerializer(comment, many=True)
         return Response(serializer.data) 
 
