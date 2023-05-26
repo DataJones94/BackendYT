@@ -1,9 +1,12 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useNavigate } from "react-router-dom" //helps navagate from page to page
+import axios from 'axios'
 
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
+import useInput from "../../hooks/useInput"
+import SearchBar from "../../components/SearchBar/SearchBar"
+
 
 let initialValues ={
     video_id: "",
@@ -13,9 +16,9 @@ let initialValues ={
 };
 
 const SearchPage =()=>{
-    const [user, token] = useAuth()
+    const [user, token] = useAuth() //grabs user info and token
     const navigate = useNavigate()
-    const {formData, handleInputChange, handleSubmit} = useCustomForm(initialValues)
+    const {formData, handleInputChange, handleSubmit} = useCustomForm(initialValues, getSearchedVideos)
 
     async function getSearchedVideos(){
         try {
@@ -48,9 +51,27 @@ const SearchPage =()=>{
                     <input
                     type="text"
                     name="text"
-                    value={form.Data.text}
+                    value={formData.text}
                     onChange={handleInputChange}
-                    ></input>
+                    />
+                </label>
+                <label>
+                    likes:{" "}
+                    <input
+                    type="text"
+                    name= "likes"
+                    value={formData.likes}
+                    onChange={handleInputChange} 
+                    />
+                </label>
+                <label>
+                    dislikes: {""}
+                    <input
+                    type= "text"
+                    name="dislikes"
+                    value={formData.dislikes}
+                    onChange={handleInputChange}
+                    />
                 </label>
             </form>
         </div>
