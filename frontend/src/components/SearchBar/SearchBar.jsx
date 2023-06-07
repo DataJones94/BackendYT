@@ -13,7 +13,7 @@ const SearchBar = ({getSearchedVideos}) => {
         <form onSubmit={handleSubmit}className='form-grid'>
             <div className= 'form-group'>
                 <label>search for </label>
-                <input type= 'search' placeholder='search video,etc.' value = {search} onChange={(event) => setSearch(event.target.value)}/>
+                <input type= 'search' placeholder='search video' value = {search} onChange={(event) => setSearch(event.target.value)}/>
                 <div className='buttons'>
                 <button type='submit'>Search Videos</button>
                 </div>

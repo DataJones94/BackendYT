@@ -206,18 +206,12 @@ const SearchPage =()=>{
     }
 
     return(  
-        <div>
-        <form onSubmit={handleSubmit}className='formgrid'>
-        <div>
-        <div className="border-box"></div>         
-            <SearchBar userAuth={getSearchedVideos} />       
-        </div>
-        onChange={handleInputChange}
-        </form>
+        <div className="border-box" >        
+        <SearchBar useState={getSearchedVideos} />       
         <Link to= "/videopage:video_Id">Vdiosd</Link>
         </div>
-       
-    )
+        // onChange={handleInputChange}
+        )
 
 
 }
