@@ -192,11 +192,11 @@ const SearchPage =()=>{
     
 
     )
-    const {formData, handleInputChange, handleSubmit} = useCustomForm(initialValues, getSearchedVideos)
 
-    async function getSearchedVideos(){
+    async function getSearchedVideos(searchTerm){
         try {
-            let response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=bruno%20mars&key=AIzaSyBOjIIl_BTpBgRMqKV1Ot2eGinVk6lekbo&part=snippet&type=video&maxResults=5")
+            // TODO: insert searchTerm into the URL of the GET request to make the request dynamic
+            let response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=AIzaSyBOjIIl_BTpBgRMqKV1Ot2eGinVk6lekbo&part=snippet&type=video&maxResults=5")
             setVideos(response.data.items)
         
         } catch (error) {
@@ -204,13 +204,26 @@ const SearchPage =()=>{
             
         }
     }
+    
 
     return(  
-        <div className="border-box" >        
-        <SearchBar useState={getSearchedVideos} />       
-        <Link to= "/videopage:video_Id">Vdiosd</Link>
+        <>
+        <div className="border-box">
+            <SearchBar useState={getSearchedVideos} />
+            {/*TODO: Map through videos variable to display a thumbnail for each video from your search results */}
+            <Link to="/videopage:video_Id">Related Videos</Link>
         </div>
-        // onChange={handleInputChange}
+        <div className='border-box'>
+            {getSearchedVideos.map((video) => (
+                  <ul key={video.video_id}>
+                    <li>{video.snippet.thumbnails}</li>
+                    <li>{video.snippet.title}</li>
+                    <li>{video.snippet.description}</li>
+                 </ul>   
+            ))}
+        </div>
+        </>
+        
         )
 
 

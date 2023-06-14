@@ -2,7 +2,7 @@ const VideoPage = () => {
     
     return ( 
         <div>
-            Hello World!
+            This Page Is Supposed to play Related Videos based on video id
         </div>
      );
 }

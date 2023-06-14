@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 
 const SearchBar = ({getSearchedVideos}) => {
-    const [search, setSearch] = useState([]);
+    const [search, setSearch] = useState("");
     
 
     function handleSubmit(event) {
         event.preventDefault();
-       getSearchedVideos();
+       getSearchedVideos(search);
     }
     return (
         <form onSubmit={handleSubmit}className='form-grid'>
