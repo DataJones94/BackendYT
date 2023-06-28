@@ -34,7 +34,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/searchpage" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
-        <Route path="/videopage:video_Id" element= {<PrivateRoute><VideoPage /></PrivateRoute>} />
+        <Route path="/videopage" element= {<PrivateRoute><VideoPage /></PrivateRoute>} />
        
         </Routes>
         <Footer />
