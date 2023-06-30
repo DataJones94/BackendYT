@@ -22,17 +22,29 @@ const VideoPage = () => {
 
   return (
     <div>
-      {videos.length > 0 && (                           //this will check if there are any videos available
-        <iframe
-          id="ytplayer"
-          type="text/html"
-          width="640"
-          height="360"
-          src={`https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&origin=http://example.com`}
+      {videos.length > 0 && (      
+        <div>
+          <iframe
+            id="ytplayer"
+            type="text/html"
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/${videos[3].id.videoId}?autoplay=1&origin=http://example.com`}
           ></iframe>
-          )}
-          <h1>{videos[0].snippet.title}</h1>
-          <h2>{videos[0].snippet.description}</h2>
+        </div>
+      )} 
+      <h2>{videos[3]?.snippet?.description}</h2> 
+      <div className="thumbnail-grid">
+        {videos.map((video) => (
+          <ul key={video.id.videoId} className= "thumbnail-grid">
+            <li>
+              <img src={video.snippet.thumbnails.default.url} alt="thumbnail" />
+            </li>
+            <li>{video.snippet.title}</li>
+            <li>{video.snippet.description}</li>
+          </ul>
+        ))}
+      </div>
     </div>
   );
 };
@@ -40,3 +52,9 @@ const VideoPage = () => {
 export default VideoPage;
 
 
+
+
+
+
+//videos.length > 0 &&:this will check if there are any videos available
+// the ? allows me to see that if there is something to display it will display, if not there will be nothing 

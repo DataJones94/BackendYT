@@ -12,7 +12,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Django JWT</b>
+            <b>BrunoTube</b>
           </Link>
         </li>
         <li>
@@ -23,6 +23,11 @@ const Navbar = () => {
           )}
         </li>
       </ul>
+      <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/videopage">Team Brunz</a>
+  </li>
+</ul>
     </div>
   );
 };

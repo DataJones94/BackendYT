@@ -1,6 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import "./VideoPage.css";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -19,6 +20,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
+  
   return (
     <div>
       <Navbar />
@@ -37,6 +39,7 @@ function App() {
         <Route path="/videopage" element= {<PrivateRoute><VideoPage /></PrivateRoute>} />
        
         </Routes>
+        {/* <div className="borderbox"></div> */}
         <Footer />
       
     </div>

@@ -1,0 +1,10 @@
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as desired */
+    gap: 20px; /* Adjust the gap between thumbnails */
+  }
+  
+  .thumbnail-item {
+    list-style-type: none;
+    text-align: center;
+  }
