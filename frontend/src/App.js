@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./VideoPage.css";
+// import ".components/VideoPage/VideoPage.css";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -20,7 +20,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
-  
+
   return (
     <div>
       <Navbar />

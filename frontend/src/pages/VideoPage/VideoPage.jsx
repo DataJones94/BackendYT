@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CommentForm from "../../components/Comments/CommentForm";
 
 const VideoPage = () => {
   const [videos, setVideos] = useState([]);
