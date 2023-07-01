@@ -3,32 +3,53 @@ import React, { useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 
 const CommentForm = (props) => {
-    const[user, token]= useAuth()
-    const[newComment, setNewComment]= useState("")
+    const[user, token]= useAuth();
+    const[text, setText]= useState("");
+    const[likes, setLikes] = useState(0);
+    const[dislikes, setDislikes] = useState(0);
+    
 
-    async function postNewComment(event){
-        event.preventDefault() //will stop page from refresing when submitting form
-        let commentObject = {
-            video_id: props.video_Id,
-            text: newComment,
-            likes: 0,
-            dislikes: 0,
-        }
-        let response = await axios.post("http://127.0.0.1:8000/api/comments/hello/",{commentObject},{headers:{Authorization: "Bearer "+ token}})
+
+    async function posttext(commentObject){
+        debugger
+        let response = await axios.post(`http://127.0.0.1:8000/api/comments/${props.video_id}/`,
+        commentObject,
+        {
+            headers:{
+                    Authorization: "Bearer " + token}
+        });
         console.log(response.data);
-    } 
+    };
+
+    function handleSubmit(event){
+       event.preventDefault() //will stop page from refresing when submitting form
+        let commentObject = {
+            video_id: props.video_id,
+            text: text,
+            likes: likes,
+            dislikes: dislikes,
+        } ;
+        posttext(commentObject);
+    };
+
+
+    
 
 
 
 
     return ( 
-        <form onSubmit={(event) => postNewComment(event)}>
-            <lable>
+        <div>
+        <form onSubmit={handleSubmit}>
+            <label>
                 Write Your Comments Here!
-            </lable>
-            <input type="text" value={newComment} onChange={setNewComment}/>
+            </label>
+            <input type="text" value={text} onChange={(event) => setText(event.target.value)}/>
+            <input type="text" value={likes} onChange={(event) => setLikes(event.target.value)}/>
+            <input type="text" value={dislikes} onChange={(event) => setDislikes(event.target.value)}/>
             <button type='submit'>Submit!</button>
         </form>
+        </div>
      );
 }
  

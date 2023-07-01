@@ -20,6 +20,13 @@ const VideoPage = () => {
       console.log(error);
     }
   }
+  const postNewComment = async (comment) => {
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/comments/hello/", {comment});
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -33,7 +40,9 @@ const VideoPage = () => {
             src={`https://www.youtube.com/embed/${videos[3].id.videoId}?autoplay=1&origin=http://example.com`}
           ></iframe>
         </div>
-      )} 
+      )}<div> 
+      <CommentForm postNewComment={postNewComment} />
+      </div>
       <h2>{videos[3]?.snippet?.description}</h2> 
       <div className="thumbnail-grid">
         {videos.map((video) => (
@@ -46,6 +55,7 @@ const VideoPage = () => {
           </ul>
         ))}
       </div>
+      
     </div>
   );
 };
