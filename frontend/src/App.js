@@ -14,6 +14,7 @@ import VideoPage from "./pages/VideoPage/VideoPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/SearchBar/SearchBar";
+import RelatedVideos from "./components/RelatedVideos/RelatedVideos";
 
 
 // Util Imports
@@ -37,6 +38,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/searchpage" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
         <Route path="/videopage" element= {<PrivateRoute><VideoPage /></PrivateRoute>} />
+        <Route path="/relatedvideospage" element= {<PrivateRoute><RelatedVideos /></PrivateRoute>} />
        
         </Routes>
         {/* <div className="borderbox"></div> */}

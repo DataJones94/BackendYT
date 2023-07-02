@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CommentForm from "../../components/Comments/CommentForm";
+import RelatedVideos from "../../components/RelatedVideos/RelatedVideos";
 
 const VideoPage = () => {
   const [videos, setVideos] = useState([]);
@@ -43,7 +44,10 @@ const VideoPage = () => {
       )}<div> 
       <CommentForm postNewComment={postNewComment} />
       </div>
-      <h2>{videos[3]?.snippet?.description}</h2> 
+      <div>
+        <RelatedVideos Relatedvideos ={setVideos} />
+      </div>
+      {/* <h2>{videos[3]?.snippet?.description}</h2> 
       <div className="thumbnail-grid">
         {videos.map((video) => (
           <ul key={video.id.videoId} className= "thumbnail-grid">
@@ -53,8 +57,8 @@ const VideoPage = () => {
             <li>{video.snippet.title}</li>
             <li>{video.snippet.description}</li>
           </ul>
-        ))}
-      </div>
+        ))} */}
+      
       
     </div>
   );

@@ -1,18 +1,17 @@
 // import { useNavigate } from "react-router-dom" 
 import axios from 'axios'
-import { useState } from 'react';
-import useAuth from "../../hooks/useAuth"
-import useCustomForm from "../../hooks/useCustomForm"
+import { useEffect, useState } from 'react';
+import useAuth from "../../hooks/useAuth";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-let initialValues ={
-    video_id: "",
-    text:"",
-    likes: "",
-    dislikes:"",
-};
+// let initialValues ={
+//     video_id: "",
+//     text:"",
+//     likes: "",
+//     dislikes:"",
+// };
 
 const SearchPage =()=>{
     const [user, token] = useAuth() //grabs user info and token
@@ -206,6 +205,9 @@ const SearchPage =()=>{
             
         }
     }
+    useEffect(() => {
+        getSearchedVideos("brunoMars");
+      }, []);
     
 
     return(  
@@ -213,7 +215,7 @@ const SearchPage =()=>{
         <div className="border-box">
             <SearchBar getSearchedVideos={getSearchedVideos} />
             {/*TODO: Map through videos variable to display a thumbnail for each video from your search results */}
-            <Link to="/videopage:video_Id">Related Videos</Link>
+            <Link to="/relatedvideospage">Related Videos</Link>
         </div>
         <div className='border-box'>
             {videos.map((video) => (
