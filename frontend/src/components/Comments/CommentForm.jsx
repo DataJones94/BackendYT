@@ -39,7 +39,7 @@ const CommentForm = (props) => {
 
 
     return ( 
-        <div>
+        <div className='container text-center'>
         <form onSubmit={handleSubmit}>
             <label>
                 Write Your Comments Here!

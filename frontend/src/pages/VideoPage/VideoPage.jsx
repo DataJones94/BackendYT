@@ -33,6 +33,7 @@ const VideoPage = () => {
     <div>
       {videos.length > 0 && (      
         <div>
+          <div className="container text-center">
           <iframe
             id="ytplayer"
             type="text/html"
@@ -40,24 +41,16 @@ const VideoPage = () => {
             height="360"
             src={`https://www.youtube.com/embed/${videos[3].id.videoId}?autoplay=1&origin=http://example.com`}
           ></iframe>
+          </div>
         </div>
       )}<div> 
       <CommentForm postNewComment={postNewComment} />
       </div>
-      <div>
+      <div className="container text-center">
+        <div class= 'row'></div>
+        <div class= 'col'></div>
         <RelatedVideos Relatedvideos ={setVideos} />
       </div>
-      {/* <h2>{videos[3]?.snippet?.description}</h2> 
-      <div className="thumbnail-grid">
-        {videos.map((video) => (
-          <ul key={video.id.videoId} className= "thumbnail-grid">
-            <li>
-              <img src={video.snippet.thumbnails.default.url} alt="thumbnail" />
-            </li>
-            <li>{video.snippet.title}</li>
-            <li>{video.snippet.description}</li>
-          </ul>
-        ))} */}
       
       
     </div>
@@ -69,6 +62,17 @@ export default VideoPage;
 
 
 
+{/* <h2>{videos[3]?.snippet?.description}</h2> 
+<div className="thumbnail-grid">
+  {videos.map((video) => (
+    <ul key={video.id.videoId} className= "thumbnail-grid">
+      <li>
+        <img src={video.snippet.thumbnails.default.url} alt="thumbnail" />
+      </li>
+      <li>{video.snippet.title}</li>
+      <li>{video.snippet.description}</li>
+    </ul>
+  ))} */}
 
 
 //videos.length > 0 &&:this will check if there are any videos available

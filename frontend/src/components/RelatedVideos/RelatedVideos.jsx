@@ -11,7 +11,6 @@ const RelatedVideos = () => {
 
   async function Relatedvideos() {
     try {
-      // TODO: Insert searchTerm into the URL of the GET request to make the request dynamic
       let response = await axios.get(
         'https://www.googleapis.com/youtube/v3/search?relatedToVideoId=fLexgOxsZu0&type=video&key=AIzaSyBOjIIl_BTpBgRMqKV1Ot2eGinVk6lekbo&part=snippet'
       );
@@ -42,7 +41,9 @@ const RelatedVideos = () => {
         {videos.map((video) => (
           <ul key={video.videoId}>
             <li>
+            <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
               <img src={video.snippet.thumbnails.default.url} alt="Thumbnail" />
+              </a>
             </li>
             <li>{video.snippet.title}</li>
             <li>{shortenDescription(video.snippet.description)}</li>
