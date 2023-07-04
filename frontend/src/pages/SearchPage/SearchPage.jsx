@@ -1,5 +1,4 @@
 
-//     {/*TODO: Map through videos variable to display a thumbnail for each video from your search results */}
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,26 +30,24 @@ const SearchPage = () => {
           <SearchBar getSearchedVideos={getSearchedVideos} />
         
         <Link to="/relatedvideospage">Bruno Mars Related Videos</Link>
-      </div>
-      {/* <div className="border-box"> */}
         <div className="container text-center">
+      </div>
+          <div className="text-bg-info p-3"></div>
           {videos.map((video) => (
             <ul key={video.videoId}>
               <li>
-              src= {`https://www.youtube.com/embed/?autoplay=1&origin=http://example.com`}
+              <li>"{video.snippet.title}"</li>
+              <li>"{video.snippet.description}"</li>
+              src= {`https://www.youtube.com/embed/?${video.id.videoId}autoplay=1&origin=http://example.com`}
               <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
               <img src={video.snippet.thumbnails.medium.url} alt="Thumbnail" />
               </a>
               </li>
-                <a href="{video.snippet.title}"></a>
-              <li>"{video.snippet.description}"</li>
               
             </ul>
           ))}
-          <div className="text-bg-info p-3"></div>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }
