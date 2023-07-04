@@ -34,7 +34,7 @@ const RelatedVideos = () => {
   return (
     <>
       <div className="border-box">
-        {/* TODO: Map through videos variable to display a thumbnail for each video from your search results */}
+        <p><a href="#" className="link-dark"></a></p>
         <Link to="/relatedvideospage">Related Videos</Link>
       </div>
       <div className="border-box">
@@ -42,7 +42,7 @@ const RelatedVideos = () => {
           <ul key={video.videoId}>
             <li>
             <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
-              <img src={video.snippet.thumbnails.default.url} alt="Thumbnail" />
+              <img src={video.snippet.thumbnails.medium.url} alt="Thumbnail" />
               </a>
             </li>
             <li>{video.snippet.title}</li>

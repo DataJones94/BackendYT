@@ -30,14 +30,7 @@ const CommentForm = (props) => {
             dislikes: dislikes,
         } ;
         posttext(commentObject);
-    };
-
-
-    
-
-
-
-
+    };   
     return ( 
         <div className='container text-center'>
         <form onSubmit={handleSubmit}>
@@ -47,7 +40,9 @@ const CommentForm = (props) => {
             <input type="text" value={text} onChange={(event) => setText(event.target.value)}/>
             <input type="text" value={likes} onChange={(event) => setLikes(event.target.value)}/>
             <input type="text" value={dislikes} onChange={(event) => setDislikes(event.target.value)}/>
-            <button type='submit'>Submit!</button>
+            <p><a href="#" class="link-dark">
+                <button type='submit'>Submit!</button>
+            </a></p>
         </form>
         </div>
      );

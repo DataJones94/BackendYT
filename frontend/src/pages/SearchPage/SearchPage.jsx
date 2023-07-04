@@ -26,29 +26,31 @@ const SearchPage = () => {
 
   return (
     <>
-      <div className="border-box">
+      <div className="background">
         <div className="container text-center">
           <SearchBar getSearchedVideos={getSearchedVideos} />
-        </div>
+        
         <Link to="/relatedvideospage">Bruno Mars Related Videos</Link>
       </div>
-      <div className="border-box">
+      {/* <div className="border-box"> */}
         <div className="container text-center">
           {videos.map((video) => (
             <ul key={video.videoId}>
               <li>
+              src= {`https://www.youtube.com/embed/?autoplay=1&origin=http://example.com`}
               <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
-              <img src={video.snippet.thumbnails.default.url} alt="Thumbnail" />
+              <img src={video.snippet.thumbnails.medium.url} alt="Thumbnail" />
               </a>
               </li>
-                <a>
-              <li>{video.snippet.title}</li>
-              <li>{video.snippet.description}</li>
-                </a>
+                <a href="{video.snippet.title}"></a>
+              <li>"{video.snippet.description}"</li>
+              
             </ul>
           ))}
+          <div className="text-bg-info p-3"></div>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 }

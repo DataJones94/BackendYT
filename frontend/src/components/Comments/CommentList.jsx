@@ -41,4 +41,4 @@ const CommentList = (props) => {
             
 }        
 export default CommentList;
-        //not sure what to put here. video id is a bucket i need to pull  pass vidid into get request 
+        

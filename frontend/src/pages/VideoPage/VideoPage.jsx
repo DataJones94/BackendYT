@@ -30,6 +30,8 @@ const VideoPage = () => {
   };
 
   return (
+    <div className="text-bg-info p-3">
+      <div class="opacity-25"></div>
     <div>
       {videos.length > 0 && (      
         <div>
@@ -52,7 +54,7 @@ const VideoPage = () => {
         <RelatedVideos Relatedvideos ={setVideos} />
       </div>
       
-      
+      </div>
     </div>
   );
 };
