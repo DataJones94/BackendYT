@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+  grid-template-columns: repeat(3, 1fr); 
   grid-gap: 20px;
-  margin:auto; /* Adjust the gap between grid items as needed */
+  margin:auto; 
 }

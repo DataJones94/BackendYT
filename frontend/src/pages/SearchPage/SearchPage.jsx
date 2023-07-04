@@ -39,7 +39,7 @@ const SearchPage = () => {
               <li>"{video.snippet.title}"</li>
               <li>"{video.snippet.description}"</li>
               src= {`https://www.youtube.com/embed/?${video.id.videoId}autoplay=1&origin=http://example.com`}
-              <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">  
               <img src={video.snippet.thumbnails.medium.url} alt="Thumbnail" />
               </a>
               </li>
@@ -53,3 +53,5 @@ const SearchPage = () => {
 }
 
 export default SearchPage;
+
+//found out the target="_blank" rel="noopener noreferrer" will take make the video play on a different tab. 
